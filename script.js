@@ -1,5 +1,6 @@
 var SMS_NUMBER = "9771";
 var MIN_YEAR = 2006;
+var DATE_SEPARATOR = "";
 
 var vehicleType  = document.querySelector("#vehicle-type");
 var vehicleInfo  = document.querySelector("#vehicle-info");
@@ -41,7 +42,7 @@ function clearMessage() {
 
 function formatDate(isoDate) {
   var parts = isoDate.split("-");
-  return parts[2] + "/" + parts[1] + "/" + parts[0];
+  return parts[2] + DATE_SEPARATOR + parts[1] + DATE_SEPARATOR + parts[0];
 }
 
 function prepareMessage() {
@@ -117,4 +118,15 @@ sendTokBtn.addEventListener("click", function () {
   openSmsApp(tokMessage.textContent);
 });
 
+function checkDevice() {
+  var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  if (isMobile === false) {
+    sendRegBtn.classList.add("hidden");
+    sendTokBtn.classList.add("hidden");
+    document.querySelector("#pc-hint").classList.remove("hidden");
+  }
+}
+
 showVehicleInfo();
+checkDevice();
