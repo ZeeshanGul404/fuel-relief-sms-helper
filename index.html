@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fuel Relief SMS Preparer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="card">
+    <h1>Fuel Relief SMS Preparer</h1>
+    <p class="intro">Fill in your details and get the registration message ready to send to 9771.</p>
+
+    <label for="vehicle-type">Vehicle type</label>
+    <select id="vehicle-type">
+      <option value="bike">Motorcycle, Chingchi or Rickshaw</option>
+      <option value="car">Car up to 800cc</option>
+    </select>
+    <p id="vehicle-info" class="info"></p>
+
+    <label for="cnic">CNIC (13 digits)</label>
+    <input type="text" id="cnic" inputmode="numeric" placeholder="4210112345671" maxlength="15">
+
+    <label for="plate">Vehicle number plate</label>
+    <input type="text" id="plate" placeholder="KAB1234">
+
+    <label for="province">Province</label>
+    <select id="province">
+      <option value="P">Punjab (P)</option>
+      <option value="S">Sindh (S)</option>
+      <option value="K">Khyber Pakhtunkhwa (K)</option>
+      <option value="B">Balochistan (B)</option>
+      <option value="I">Islamabad Capital Territory (I)</option>
+      <option value="A">Azad Jammu and Kashmir (A)</option>
+      <option value="G">Gilgit-Baltistan (G)</option>
+    </select>
+
+    <label for="reg-date">Vehicle registration date</label>
+    <input type="date" id="reg-date" min="2006-01-01">
+
+    <button id="prepare-btn" class="primary">Prepare message</button>
+
+    <p id="message-box" class="status"></p>
+
+    <div id="result" class="result hidden">
+      <label>Step 1: Registration message</label>
+      <div id="reg-message" class="sms"></div>
+      <div class="buttons">
+        <button id="copy-reg-btn">Copy</button>
+        <button id="send-reg-btn" class="primary">Open in SMS app</button>
+      </div>
+
+      <label>Step 2: Token message (after registration succeeds)</label>
+      <div id="tok-message" class="sms">TOK</div>
+      <div class="buttons">
+        <button id="copy-tok-btn">Copy</button>
+        <button id="send-tok-btn" class="primary">Open in SMS app</button>
+      </div>
+    </div>
+
+    <p class="note">Your details stay in this page. Nothing is saved or sent anywhere. Registration is free, so never pay an agent. Verify the number 9771 through official government channels before sending.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
