@@ -93,7 +93,9 @@ function copyText(text, button) {
 }
 
 function openSmsApp(text) {
-  window.location.href = "sms:" + SMS_NUMBER + "?body=" + encodeURIComponent(text);
+  var isAppleDevice = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+  var bodySeparator = isAppleDevice ? "&body=" : "?body=";
+  window.location.href = "sms:" + SMS_NUMBER + bodySeparator + encodeURIComponent(text);
 }
 
 vehicleType.addEventListener("change", showVehicleInfo);
